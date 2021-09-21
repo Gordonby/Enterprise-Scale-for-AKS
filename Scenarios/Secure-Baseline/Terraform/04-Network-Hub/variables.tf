@@ -18,5 +18,5 @@ variable "hub_prefix" {}
 ## Sensitive Variables for the Jumpbox
 ## Sample terraform.tfvars File
 
-# admin_password = "ChangeMe"
+# admin_password = "ChangeMePlease"
 # admin_username = "sysadmin"
