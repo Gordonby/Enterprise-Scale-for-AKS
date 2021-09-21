@@ -58,33 +58,33 @@ jobs:
       run: terraform apply -auto-approve
 
     # Change the backend-config variables to match the storage account used for your deployments.
-    # - name: Terraform Init 05-Network-LZ
-    #   working-directory: ./Scenarios/Secure-Baseline/Terraform/05-Network-LZ
-    #   run: terraform init -backend-config="resource_group_name=$TFSTATE_RG" -backend-config="storage_account_name=$STORAGEACCOUNTNAME" -backend-config="container_name=$CONTAINERNAME"
+    - name: Terraform Init 05-Network-LZ
+      working-directory: ./Scenarios/Secure-Baseline/Terraform/05-Network-LZ
+      run: terraform init -backend-config="resource_group_name=$TFSTATE_RG" -backend-config="storage_account_name=$STORAGEACCOUNTNAME" -backend-config="container_name=$CONTAINERNAME"
 
 
-    # - name: Terraform Plan 05-Network-LZ
-    #   working-directory: ./Scenarios/Secure-Baseline/Terraform/05-Network-LZ
-    #   run: terraform plan 
-
-   
-    # - name: Terraform Apply 05-Network-LZ
-    #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    #   working-directory: ./Scenarios/Secure-Baseline/Terraform/05-Network-LZ
-    #   run: terraform apply -auto-approve
-
-    # # Change the backend-config variables to match the storage account used for your deployments.
-    # - name: Terraform Init 06-AKS-supporting
-    #   working-directory: ./Scenarios/Secure-Baseline/Terraform/06-AKS-supporting
-    #   run: terraform init -backend-config="resource_group_name=$TFSTATE_RG" -backend-config="storage_account_name=$STORAGEACCOUNTNAME" -backend-config="container_name=$CONTAINERNAME"
-
-
-    # - name: Terraform Plan 06-AKS-supporting
-    #   working-directory: ./Scenarios/Secure-Baseline/Terraform/06-AKS-supporting
-    #   run: terraform plan
+    - name: Terraform Plan 05-Network-LZ
+      working-directory: ./Scenarios/Secure-Baseline/Terraform/05-Network-LZ
+      run: terraform plan 
 
    
-    # - name: Terraform Apply 06-AKS-supporting
-    #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    #   working-directory: ./Scenarios/Secure-Baseline/Terraform/06-AKS-supporting
-    #   run: terraform apply -auto-approve
+    - name: Terraform Apply 05-Network-LZ
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      working-directory: ./Scenarios/Secure-Baseline/Terraform/05-Network-LZ
+      run: terraform apply -auto-approve
+
+    # Change the backend-config variables to match the storage account used for your deployments.
+    - name: Terraform Init 06-AKS-supporting
+      working-directory: ./Scenarios/Secure-Baseline/Terraform/06-AKS-supporting
+      run: terraform init -backend-config="resource_group_name=$TFSTATE_RG" -backend-config="storage_account_name=$STORAGEACCOUNTNAME" -backend-config="container_name=$CONTAINERNAME"
+
+
+    - name: Terraform Plan 06-AKS-supporting
+      working-directory: ./Scenarios/Secure-Baseline/Terraform/06-AKS-supporting
+      run: terraform plan
+
+   
+    - name: Terraform Apply 06-AKS-supporting
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      working-directory: ./Scenarios/Secure-Baseline/Terraform/06-AKS-supporting
+      run: terraform apply -auto-approve
